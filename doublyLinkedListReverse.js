@@ -121,9 +121,32 @@ class DoublyLinkedList {
         this.length--;
         return removedNode;
     }
+    
+    reverse() {
+var temp = null;
+var current = this.head;
+  
+        /*
+         * swap next and prev for all nodes of doubly linked list
+         */
+        while (current != null) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+        }
+  
+        /*
+         * Before changing head, check for the cases like empty list and list with only
+         * one node
+         */
+        if (temp != null) {
+            this.head = temp.prev;
+        }
+        return this;
+    }
 }
-
-var list2 = new DoublyLinkedList()
-list2.push("Harry")
-list2.push("Ron")
-list2.push("Hermione")
+var list2 = new DoublyLinkedList();
+list2.push("Harry");
+list2.push("Ron");
+list2.push("Hermione");
