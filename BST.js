@@ -84,6 +84,7 @@ class BinarySearchTree {
            if(node.left) queue.push(node.left);
            if(node.right) queue.push(node.right);
         }
+        console.log(`BFS-${data}`);
         return data;
     }
     DFSPreOrder(){
@@ -94,6 +95,7 @@ class BinarySearchTree {
             if(node.right) traverse(node.right);
         }
         traverse(this.root);
+        console.log(`DFSPreOrder-${data}`);
         return data;
     }
     DFSPostOrder(){
@@ -104,7 +106,7 @@ class BinarySearchTree {
             data.push(node.value);
         }
         traverse(this.root);
-        console.log(data);
+        console.log(`DFSPostOrder-${data}`);
         return data;
     }
     DFSInOrder(){
@@ -115,6 +117,7 @@ class BinarySearchTree {
             if(node.right) traverse(node.right);
         }
         traverse(this.root);
+        console.log(`DFSInOrder-${data}`);
         return data;
     }
 }
@@ -127,9 +130,11 @@ tree.insert(15);
 tree.insert(3);
 tree.insert(8);
 tree.insert(20);
-
+tree.BFS();
 tree.DFSPreOrder();
 tree.DFSPostOrder();
 tree.DFSInOrder();
-
+//           10
+//       6         15
+//     3   8          20
 
